@@ -1,5 +1,65 @@
 {% section 'product-template' %}
-{% section 'product-story-sections' %}
+{% comment %} code change - am. loads one of many product templates based on tag.  
+previously loaded section 'product-template' only  {% endcomment %}
+{%- liquid
+  assign product_template2 = false   assign product_template3 = false   assign product_template4 = false
+  assign product_template5 = false   assign product_template6 = false   assign product_template7 = false
+  assign product_template8 = false   assign product_template9 = false   assign product_template10 = false
+  for tag in product.tags
+    if tag contains 'page-2-socks'
+      assign product_template2 = true
+      break
+    elsif tag contains 'page-3-adult-socks'
+      assign product_template3 = true
+      break
+    elsif tag contains 'page-4-underwear-boxers'
+      assign product_template4 = true
+      break
+    elsif tag contains 'page-5-underwear-boyshorts'
+      assign product_template5 = true
+      break
+    elsif tag contains 'page-6-baby-basics'
+      assign product_template6 = true
+      break
+    elsif tag contains 'page-7-face-masks'
+      assign product_template7 = true
+      break
+    elsif tag contains 'page-8-merino-wool'
+      assign product_template8 = true
+      break
+    elsif tag contains 'page-9-pajamas'
+      assign product_template9 = true
+      break
+    elsif tag contains 'page-10-tights'
+      assign product_template10 = true
+      break
+    endif
+  endfor
+
+if product_template2 == true
+  section 'product-story-sections-2'
+elsif product_template3 == true
+  section 'product-story-sections-3'
+elsif product_template4 == true
+  section 'product-story-sections-4'
+elsif product_template5 == true
+  section 'product-story-sections-5'
+elsif product_template6 == true
+  section 'product-story-sections-6'
+elsif product_template7 == true
+  section 'product-story-sections-7'
+elsif product_template8 == true
+  section 'product-story-sections-8'
+elsif product_template9 == true
+  section 'product-story-sections-9'
+elsif product_template10 == true
+  section 'product-story-sections-10'
+else
+  section 'product-story-sections'
+endif
+-%}
+{% comment %} end of code change - am {% endcomment %} 
+
 {% section 'product-recommendations' %}
 {% section 'recently-viewed' %}
 
