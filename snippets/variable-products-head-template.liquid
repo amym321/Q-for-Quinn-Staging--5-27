@@ -1,0 +1,7 @@
+{%- if collection and product == null -%}
+  <link id="variable-products-load-css" rel="stylesheet" href="{{ 'variable-products-load.scss' | asset_url }}" />
+  <link rel="stylesheet" href="{{ 'variable-products.scss' | asset_url }}" />
+{%- endif -%}
+<script src="{{ 'variable-products.js' | asset_url }}" type="text/javascript" defer></script>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous" defer></script>
